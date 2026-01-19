@@ -185,3 +185,212 @@ You can extend this architecture with:
 • 	long‑term planning
 • 	self‑improving reflection loops
 • 	cross‑MCP orchestration
+
+
+
+
+📘 1. Quick‑Reference Cheat Sheet
+A fast, high‑density lookup for everything in your MCP system.
+
+Core MCPs
+Cognitive Loop MCP (v0.5)
+Purpose: Autonomous reasoning engine
+Key tools:
+- run_cycle — generate read plan
+- reflect — produce reflection + summary
+- apply_insights — produce write plan + updated state
+- heartbeat — return cognitive state snapshot
+State stored in KG:
+type = "cognitive_state"
+
+Knowledge Graph MCP (v0.5)
+Purpose: Structured memory store (SQLite)
+Key tools:
+- add_node
+- add_edge
+- list_recent_nodes
+- list_recent_edges
+- find_or_create_state_node
+- update_node_data
+Stores:
+concepts, documents, reflections, insights, actions, cognitive_state
+
+Supporting MCPs
+Long‑Term Memory MCP
+Purpose: Semantic memory
+Tools:
+- store_memory
+- search_memories
+- list_memories
+
+Python‑Lab MCP
+Purpose: Safe Python execution
+Tools:
+- run_python
+
+Paperless MCP
+Purpose: Document ingestion + OCR
+Tools:
+- list_documents
+- get_document
+- extract_text
+- get_metadata
+
+Web‑Search MCP
+Purpose: External information retrieval
+Tools:
+- search
+
+ZIM MCP
+Purpose: Offline encyclopedia access
+Tools:
+- zim_search
+- zim_get
+
+Full Cognitive Cycle (v0.5)
+- run_cycle() → read plan
+- Execute read plan
+- reflect() → reflection + summary
+- apply_insights() → write plan + updated state
+- Execute write plan
+- Inspect graph
+
+Cognitive State Node Structure
+cycle_count
+last_cycle_time
+last_mode
+last_reflection
+last_summary
+last_written_nodes
+last_written_edges
+last_active_concepts
+last_memory_snapshot
+
+
+
+File Locations
+- Cognitive Loop MCP → cognitive-loop-mcp/server.py
+- Knowledge Graph MCP → knowledgegraph/server.py
+- SQLite DB → knowledgegraph/knowledge_graph.db
+
+LM Studio Config (Python 3.12)
+"command": "C:\\Users\\Daryn\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+
+
+
+🧑‍💻 2. Developer Onboarding Guide
+A practical, step‑by‑step guide for anyone setting up or extending your MCP ecosystem.
+
+1. Prerequisites
+- Windows 11
+- Python 3.12 installed at:
+C:\Users\Daryn\AppData\Local\Programs\Python\Python312\python.exe
+- LM Studio (MCP‑enabled)
+- Node.js (for web‑search MCP)
+- Paperless‑NGX instance running
+
+2. Repository Structure
+/cognitive-loop-mcp
+    server.py
+
+/knowledgegraph
+    server.py
+    knowledge_graph.db
+
+/longterm
+    long-term-memory-mcp.py
+
+/sandboxed-python-lab
+    server.py
+
+/open-webSearch
+    build/index.js
+
+/zim-mcp-server
+    server.py
+
+
+
+3. MCP Configuration
+Add to LM Studio:
+"command": "C:\\Users\\Daryn\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+
+
+for:
+- cognitive-loop
+- knowledge-graph
+- python-lab
+- long_term_memory
+
+4. Starting the System
+- Fully quit LM Studio
+- Reopen LM Studio
+- Go to Settings → MCP Servers
+- Toggle each MCP OFF → ON
+- Test Knowledge Graph:
+knowledge-graph: list_recent_nodes({ "limit": 5 })
+
+
+If this works, the system is online.
+
+5. Running the First Cognitive Cycle
+- Trigger:
+cognitive-loop: run_cycle()
+
+
+- Execute read plan
+- Reflect:
+cognitive-loop: reflect({...})
+- Apply insights:
+cognitive-loop: apply_insights({...})
+- Execute write plan
+- Inspect graph
+6. Debugging TipsIf KG tools fail:- Wrong Python interpreter
+- DB file cannot be created
+- Syntax error in KG server
+If run_cycle returns []:- LM Studio is running cached MCP
+- Restart LM Studio
+If state node doesn’t update:- Wrong node_id
+- update_node_data not implemented
+7. Extending the SystemYou can add:- new node types
+- new edge relations
+- new cognitive modes
+- nightly autonomous cycles
+- document auto‑tagging
+- concept clustering
+- multi‑agent orchestration
+📄 3. Whitepaper‑Style VersionA high‑level conceptual document describing the architecture, motivations, and capabilities.Daryn’s Multi‑MCP Cognitive ArchitectureA modular, extensible system for autonomous reasoning and knowledge evolution.AbstractThis document describes a multi‑component cognitive architecture built using the Model Context Protocol (MCP). The system integrates structured memory, semantic memory, document ingestion, Python computation, web search, offline knowledge, and an autonomous reasoning engine. Together, these components form a persistent, self‑maintaining cognitive substrate capable of reflection, insight generation, and long‑term knowledge evolution.1. IntroductionModern AI systems benefit from modularity, persistence, and the ability to integrate multiple sources of knowledge. MCP provides a standardized interface for building such systems. This architecture leverages MCP to create a distributed cognitive system composed of specialized subsystems that cooperate through a shared protocol.The core of the system is the Cognitive Loop MCP, which performs autonomous cycles of perception, reflection, and knowledge synthesis. Supporting MCPs provide structured memory, semantic memory, document ingestion, computational capabilities, and access to external or offline knowledge.2. Architectural Principles2.1 ModularityEach MCP is an independent process with a well‑defined interface.2.2 PersistenceThe Knowledge Graph MCP stores long‑term structured memory, while the Long‑Term Memory MCP stores semantic embeddings.2.3 AutonomyThe Cognitive Loop MCP maintains its own state and evolves over time.2.4 ExtensibilityNew MCPs can be added without modifying existing ones.2.5 TransparencyAll knowledge is stored in inspectable formats (SQLite, JSON).3. Core Components3.1 Cognitive Loop MCPThe reasoning engine. It performs cycles consisting of:- reading graph + memory
+- generating reflections
+- producing insights
+- updating its cognitive state
+This creates a persistent cognitive timeline.3.2 Knowledge Graph MCPA structured memory system storing:- concepts
+- documents
+- reflections
+- insights
+- actions
+- cognitive state
+It provides the substrate on which cognition operates.3.3 Long‑Term Memory MCPA semantic memory system supporting:- embedding storage
+- similarity search
+- episodic recall
+3.4 Python‑Lab MCPA safe computational environment for:- data analysis
+- embedding computation
+- text processing
+3.5 Paperless MCPA document ingestion pipeline enabling:- OCR
+- metadata extraction
+- document retrieval
+3.6 Web‑Search MCPProvides access to external information sources.3.7 ZIM MCPProvides offline encyclopedia‑style knowledge.4. Cognitive Cycle DynamicsA cognitive cycle consists of:- Perception — reading graph + memory
+- Reflection — synthesizing information
+- Insight — generating new knowledge
+- Action — writing to the graph
+- State Update — maintaining continuity
+Over time, this produces:- reflection chains
+- insight graphs
+- evolving cognitive state
+- long‑term conceptual structures
+5. ApplicationsThis architecture supports:- autonomous knowledge evolution
+- document understanding
+- concept clustering
+- long‑term planning
+- multi‑agent reasoning
+- offline + online knowledge integration
+6. ConclusionThis multi‑MCP cognitive architecture demonstrates how modular subsystems can be combined into a persistent, evolving reasoning system. By integrating structured memory, semantic memory, document ingestion, computation, and autonomous cognition, the system forms a foundation for long‑term, self‑maintaining intelligence.
