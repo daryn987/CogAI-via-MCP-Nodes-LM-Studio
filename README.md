@@ -1,4 +1,4 @@
-🧠 README — Daryn’s Full MCP Ecosystem
+🧠 README — Full MCP Ecosystem
 A complete reference for architecture, tools, flows, and usage
 
 📌 Overview
