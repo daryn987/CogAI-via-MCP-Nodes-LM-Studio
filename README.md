@@ -18,7 +18,7 @@ Together, these MCPs form a unified cognitive substrate capable of:
 • 	evolving its internal state over time
 This README documents the architecture, tools, data flows, and usage patterns for the entire system.
 
-2. System Architecture (Narrative Format)
+2. System Architecture
 Your system is composed of several cooperating MCP servers. Each one exposes tools through LM Studio, and the Cognitive Loop orchestrates them into a coherent reasoning engine.
 2.1 Cognitive Loop MCP (v0.5)
 The Cognitive Loop is the reasoning core of the system. It performs autonomous cycles that read from the graph, read long‑term memory, generate reflections, write insights, and update its own persistent cognitive state.
