@@ -378,7 +378,10 @@ It provides the substrate on which cognition operates.3.3 Long‑Term Memory MCP
 3.5 Paperless MCPA document ingestion pipeline enabling:- OCR
 - metadata extraction
 - document retrieval
-3.6 Web‑Search MCPProvides access to external information sources.3.7 ZIM MCPProvides offline encyclopedia‑style knowledge.4. Cognitive Cycle DynamicsA cognitive cycle consists of:- Perception — reading graph + memory
+3.6 Web‑Search MCP
+-Provides access to external information sources.
+3.7 ZIM MCPProvides offline encyclopedia‑style knowledge.
+4. Cognitive Cycle DynamicsA cognitive cycle consists of:- Perception — reading graph + memory
 - Reflection — synthesizing information
 - Insight — generating new knowledge
 - Action — writing to the graph
@@ -387,10 +390,12 @@ Over time, this produces:- reflection chains
 - insight graphs
 - evolving cognitive state
 - long‑term conceptual structures
-5. ApplicationsThis architecture supports:- autonomous knowledge evolution
+5. Applications
+      This architecture supports:- autonomous knowledge evolution
 - document understanding
 - concept clustering
 - long‑term planning
 - multi‑agent reasoning
 - offline + online knowledge integration
-6. ConclusionThis multi‑MCP cognitive architecture demonstrates how modular subsystems can be combined into a persistent, evolving reasoning system. By integrating structured memory, semantic memory, document ingestion, computation, and autonomous cognition, the system forms a foundation for long‑term, self‑maintaining intelligence.
+6. Conclusion
+      This multi‑MCP cognitive architecture demonstrates how modular subsystems can be combined into a persistent, evolving reasoning system. By integrating structured memory, semantic memory, document ingestion, computation, and autonomous cognition, the system forms a foundation for long‑term, self‑maintaining intelligence.
