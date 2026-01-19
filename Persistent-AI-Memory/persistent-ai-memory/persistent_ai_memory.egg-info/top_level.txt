@@ -1,0 +1,2 @@
+ai_memory_core
+mcp_server

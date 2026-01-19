@@ -1,0 +1,2 @@
+[console_scripts]
+pams-server = persistent_ai_memory.mcp_server:main
