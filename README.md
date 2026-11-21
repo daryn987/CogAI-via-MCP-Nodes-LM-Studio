@@ -11,6 +11,7 @@ A complete reference for your Cognitive Loop, Knowledge Graph, Long‑Term Memor
 1. Introduction
 This repository defines a multi‑agent cognitive system built entirely on MCP (Model Context Protocol) servers. Each MCP provides a specialized capability — structured memory, semantic memory, document ingestion, Python execution, web search, offline knowledge, and autonomous reasoning.
 Together, these MCPs form a unified cognitive substrate capable of:
+
 • 	ingesting documents
 • 	extracting and structuring knowledge
 • 	storing long‑term memories
@@ -18,6 +19,7 @@ Together, these MCPs form a unified cognitive substrate capable of:
 • 	running autonomous cognitive cycles
 • 	generating reflections and insights
 • 	evolving its internal state over time
+
 This README documents the architecture, tools, data flows, and usage patterns for the entire system.
 
 2. System Architecture
@@ -25,16 +27,14 @@ Your system is composed of several cooperating MCP servers. Each one exposes too
 2.1 Cognitive Loop MCP (v0.5)
 The Cognitive Loop is the reasoning core of the system. It performs autonomous cycles that read from the graph, read long‑term memory, generate reflections, write insights, and update its own persistent cognitive state.
 Responsibilities:
+
 • 	Initiate cognitive cycles
 • 	Generate reflections and insights
 • 	Maintain a persistent cognitive_state node
 • 	Write new knowledge into the graph
 • 	Coordinate with other MCPs
+
 Tools:
-• 	
-• 	
-• 	
-• 	
 
 2.2 Knowledge Graph MCP (v0.5)
 The Knowledge Graph is the structured memory store. It uses SQLite to store nodes, edges, reflections, insights, actions, and the cognitive_state node.
@@ -43,13 +43,8 @@ Responsibilities:
 • 	Maintain graph structure
 • 	Persist the cognitive loop’s state
 • 	Provide recent activity for reflection
+
 Tools:
-• 	
-• 	
-• 	
-• 	
-• 	
-• 	
 
 2.3 Long‑Term Memory MCP
 This subsystem stores semantic memories (text + embeddings) and supports similarity search.
@@ -57,10 +52,8 @@ Responsibilities:
 • 	Store memories with embeddings
 • 	Retrieve memories via semantic search
 • 	Provide episodic memory to the Cognitive Loop
+
 Tools:
-• 	
-• 	
-• 	
 
 2.4 Python‑Lab MCP
 A sandboxed Python execution environment for safe computation and analysis.
@@ -69,9 +62,9 @@ Responsibilities:
 • 	Perform data transformations
 • 	Compute embeddings or statistics
 • 	Support document or text analysis
-Tools:
-• 	
 
+Tools:
+ 
 2.5 Paperless MCP
 A document ingestion and OCR subsystem connected to your Paperless‑NGX instance.
 Responsibilities:
@@ -79,11 +72,8 @@ Responsibilities:
 • 	Retrieve documents
 • 	Extract text
 • 	Provide metadata
+
 Tools:
-• 	
-• 	
-• 	
-• 	
 
 2.6 Web‑Search MCP
 Provides external information retrieval from the internet.
@@ -91,8 +81,8 @@ Responsibilities:
 • 	Perform web searches
 • 	Provide fresh information
 • 	Support concept enrichment
+
 Tools:
-• 	
 
 2.7 ZIM MCP
 Provides offline encyclopedia‑style knowledge from ZIM archives.
@@ -101,8 +91,6 @@ Responsibilities:
 • 	Retrieve article content
 • 	Provide offline fallback knowledge
 Tools:
-• 	
-• 	
 
 3. Cognitive Loop v0.5 — Full Cycle Overview
 A v0.5 cognitive cycle consists of six phases:
@@ -112,10 +100,7 @@ The loop begins with: This returns a read plan.
 
 3.2 Reading
 The host executes:
-• 	
-• 	
-• 	
-• 	
+
 This provides the loop with:
 • 	recent graph activity
 • 	recent memories
@@ -159,9 +144,7 @@ This evolves every cycle.
 
 5. File Locations
 Cognitive Loop MCP
-
 Knowledge Graph MCP
-
 SQLite DB
 
 
@@ -280,7 +263,7 @@ File Locations
 - SQLite DB → knowledgegraph/knowledge_graph.db
 
 LM Studio Config (Python 3.12)
-"command": "C:\\Users\\Daryn\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
+"command": "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
 
 
 
@@ -289,8 +272,7 @@ A practical, step‑by‑step guide for anyone setting up or extending your MCP 
 
 1. Prerequisites
 - Windows 11
-- Python 3.12 installed at:
-C:\Users\Daryn\AppData\Local\Programs\Python\Python312\python.exe
+- Python 3.12 installed at: C:\Users\USER\AppData\Local\Programs\Python\Python312\python.exe
 - LM Studio (MCP‑enabled)
 - Node.js (for web‑search MCP)
 - Paperless‑NGX instance running
@@ -365,37 +347,61 @@ If state node doesn’t update:- Wrong node_id
 - document auto‑tagging
 - concept clustering
 - multi‑agent orchestration
-📄 3. Whitepaper‑Style VersionA high‑level conceptual document describing the architecture, motivations, and capabilities.Daryn’s Multi‑MCP Cognitive ArchitectureA modular, extensible system for autonomous reasoning and knowledge evolution.AbstractThis document describes a multi‑component cognitive architecture built using the Model Context Protocol (MCP). The system integrates structured memory, semantic memory, document ingestion, Python computation, web search, offline knowledge, and an autonomous reasoning engine. Together, these components form a persistent, self‑maintaining cognitive substrate capable of reflection, insight generation, and long‑term knowledge evolution.1. IntroductionModern AI systems benefit from modularity, persistence, and the ability to integrate multiple sources of knowledge. MCP provides a standardized interface for building such systems. This architecture leverages MCP to create a distributed cognitive system composed of specialized subsystems that cooperate through a shared protocol.The core of the system is the Cognitive Loop MCP, which performs autonomous cycles of perception, reflection, and knowledge synthesis. Supporting MCPs provide structured memory, semantic memory, document ingestion, computational capabilities, and access to external or offline knowledge.2. Architectural Principles2.1 ModularityEach MCP is an independent process with a well‑defined interface.2.2 PersistenceThe Knowledge Graph MCP stores long‑term structured memory, while the Long‑Term Memory MCP stores semantic embeddings.2.3 AutonomyThe Cognitive Loop MCP maintains its own state and evolves over time.2.4 ExtensibilityNew MCPs can be added without modifying existing ones.2.5 TransparencyAll knowledge is stored in inspectable formats (SQLite, JSON).3. Core Components3.1 Cognitive Loop MCPThe reasoning engine. It performs cycles consisting of:- reading graph + memory
+📄 3. Whitepaper‑Style VersionA high‑level conceptual document describing the architecture, motivations, and capabilities.
+Daryn’s Multi‑MCP Cognitive ArchitectureA modular, extensible system for autonomous reasoning and knowledge evolution.
+AbstractThis document describes a multi‑component cognitive architecture built using the Model Context Protocol (MCP).
+The system integrates structured memory, semantic memory, document ingestion, Python computation, web search, offline knowledge, and an autonomous reasoning engine.
+Together, these components form a persistent, self‑maintaining cognitive substrate capable of reflection, insight generation, and long‑term knowledge evolution.
+1. IntroductionModern AI systems benefit from modularity, persistence, and the ability to integrate multiple sources of knowledge.
+2. MCP provides a standardized interface for building such systems. This architecture leverages MCP to create a distributed cognitive system composed of specialized subsystems that cooperate through a shared protocol.
+3. The core of the system is the Cognitive Loop MCP, which performs autonomous cycles of perception, reflection, and knowledge synthesis.
+4. Supporting MCPs provide structured memory, semantic memory, document ingestion, computational capabilities, and access to external or offline knowledge.
+5. Architectural Principles2.1 ModularityEach MCP is an independent process with a well‑defined interface.
+6. 2.2 PersistenceThe Knowledge Graph MCP stores long‑term structured memory, while the Long‑Term Memory MCP stores semantic embeddings.
+7. 2.3 AutonomyThe Cognitive Loop MCP maintains its own state and evolves over time.2.4 ExtensibilityNew MCPs can be added without modifying existing ones
+8. .2.5 TransparencyAll knowledge is stored in inspectable formats (SQLite, JSON).
+9. 3. Core Components3.1 Cognitive Loop MCPThe reasoning engine. It performs cycles consisting of:
+
+- reading graph + memory
 - generating reflections
 - producing insights
 - updating its cognitive state
+
 This creates a persistent cognitive timeline.3.2 Knowledge Graph MCPA structured memory system storing:- concepts
 - documents
 - reflections
 - insights
 - actions
 - cognitive state
+
 It provides the substrate on which cognition operates.3.3 Long‑Term Memory MCPA semantic memory system supporting:- embedding storage
 - similarity search
 - episodic recall
+
 3.4 Python‑Lab MCPA safe computational environment for:- data analysis
 - embedding computation
 - text processing
+
 3.5 Paperless MCPA document ingestion pipeline enabling:- OCR
 - metadata extraction
 - document retrieval
+
 3.6 Web‑Search MCP
 -Provides access to external information sources.
+
 3.7 ZIM MCPProvides offline encyclopedia‑style knowledge.
+
 4. Cognitive Cycle DynamicsA cognitive cycle consists of:- Perception — reading graph + memory
 - Reflection — synthesizing information
 - Insight — generating new knowledge
 - Action — writing to the graph
 - State Update — maintaining continuity
+
 Over time, this produces:- reflection chains
 - insight graphs
 - evolving cognitive state
 - long‑term conceptual structures
+
 5. Applications
       This architecture supports:- autonomous knowledge evolution
 - document understanding
@@ -403,5 +409,6 @@ Over time, this produces:- reflection chains
 - long‑term planning
 - multi‑agent reasoning
 - offline + online knowledge integration
+
 6. Conclusion
       This multi‑MCP cognitive architecture demonstrates how modular subsystems can be combined into a persistent, evolving reasoning system. By integrating structured memory, semantic memory, document ingestion, computation, and autonomous cognition, the system forms a foundation for long‑term, self‑maintaining intelligence.
